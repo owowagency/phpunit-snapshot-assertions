@@ -1,9 +1,9 @@
 <?php
 
-namespace OwowAgency\Snapshots\Library\Snapshots;
+namespace OwowAgency\Snapshots;
 
 use Illuminate\Foundation\Testing\TestResponse;
-use OwowAgency\Snapshots\Library\Snapshots\Drivers\JsonStructureDriver;
+use OwowAgency\Snapshots\Drivers\JsonStructureDriver;
 use Spatie\Snapshots\MatchesSnapshots as BaseMatchesSnapshots;
 
 trait MatchesSnapshots
