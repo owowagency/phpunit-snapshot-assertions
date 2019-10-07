@@ -1,0 +1,20 @@
+{
+    "name": "owowagency/phpunit-snapshot-assertions",
+    "description": "An extension of the spatie/phpunit-snapshot-assertions package.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Albert Pratomo",
+            "email": "albert@owow.io"
+        }
+    ],
+    "require": {
+        "spatie/phpunit-snapshot-assertions": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "OwowAgency\\Snapshots\\": "src"
+        }
+    }
+}
