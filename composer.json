@@ -9,7 +9,7 @@
             "email": "albert@owow.io"
         }
     ],
-    "require-dev": {
+    "require": {
         "spatie/phpunit-snapshot-assertions": "^3.0"
     },
     "autoload": {
