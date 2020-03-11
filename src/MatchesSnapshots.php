@@ -11,7 +11,7 @@ trait MatchesSnapshots
     use BaseMatchesSnapshots;
 
     /**
-     * Asserts the structure of the json structure with a snapshot.
+     * Asserts the json structure of the provided value with a snapshot.
      *
      * @param  mixed  $actual
      * @return void
