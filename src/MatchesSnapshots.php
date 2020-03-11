@@ -11,16 +11,17 @@ trait MatchesSnapshots
     use BaseMatchesSnapshots;
 
     /**
-     * Asserts the structure of the response json with a snapshot.
+     * Asserts the structure of the json structure with a snapshot.
      *
-     * @param  \Illuminate\Foundation\Testing\TestResponse  $response
+     * @param  mixed  $actual
      * @return void
      */
-    public function assertJsonStructureSnapshot(TestResponse $response): void
+    public function assertJsonStructureSnapshot($actual): void
     {
-        $this->assertMatchesSnapshot(
-            $response->json(),
-            new JsonStructureDriver()
-        );
+        $json = $actual instanceof TestResponse
+            ? $actual->json()
+            : $actual;
+
+        $this->assertMatchesSnapshot($json, new JsonStructureDriver());
     }
 }
