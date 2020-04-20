@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "spatie/phpunit-snapshot-assertions": "^3.0"
+        "spatie/phpunit-snapshot-assertions": "^4.1"
     },
     "autoload": {
         "psr-4": {
