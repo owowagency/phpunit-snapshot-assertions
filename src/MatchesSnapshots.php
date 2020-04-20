@@ -2,7 +2,7 @@
 
 namespace OwowAgency\Snapshots;
 
-use Illuminate\Foundation\Testing\TestResponse;
+use Illuminate\Testing\TestResponse;
 use OwowAgency\Snapshots\Drivers\JsonStructureDriver;
 use Spatie\Snapshots\MatchesSnapshots as BaseMatchesSnapshots;
 
@@ -19,7 +19,7 @@ trait MatchesSnapshots
     public function assertJsonStructureSnapshot($actual): void
     {
         $json = $actual instanceof TestResponse
-            ? $actual->json()
+            ? $actual->getContent()
             : $actual;
 
         $this->assertMatchesSnapshot($json, new JsonStructureDriver());
