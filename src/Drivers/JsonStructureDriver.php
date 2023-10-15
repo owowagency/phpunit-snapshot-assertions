@@ -8,6 +8,24 @@ use Spatie\Snapshots\Drivers\JsonDriver;
 class JsonStructureDriver extends JsonDriver
 {
     /**
+     * A boolean that indicates if id properties should be ignored and just be
+     * asserted to be of a certain type rather than the exact value.
+     * 
+     * @var bool
+     */
+    private $ignoreIds;
+
+    /**
+     * The JsonStructureDriver constuctor.
+     * 
+     * @param  bool  $ignoreIds
+     */
+    public function __construct(bool $ignoreIds = false)
+    {
+        $this->ignoreIds = $ignoreIds;
+    }
+
+    /**
      * Override the match method to compare the JSON structures.
      *
      * @param  string  $expected
@@ -53,7 +71,8 @@ class JsonStructureDriver extends JsonDriver
         $function = function (&$value, $key) {
             if (!is_array($value)) {
                 if (
-                    preg_match("/(?<![a-zA-Z])id(?![a-zA-Z])/", $key)
+                    ! $this->ignoreIds
+                    && preg_match("/(?<![a-zA-Z])id(?![a-zA-Z])/", $key)
                     && is_numeric($value)
                 ) {
                     // If the attribute is an id, don't alter $value
